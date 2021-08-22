@@ -2,7 +2,7 @@
 
 RUN_SERVER=1
 
-if [ "$#" -le 1 ]; then
+if [ "$#" -eq 1 ]; then
 	case "$1" in
 		server)
 			;;
@@ -16,6 +16,9 @@ if [ "$#" -le 1 ]; then
 			exit 1
 			;;
 	esac
+elif [ "$#" -gt 1 ]; then
+	echo "usage: run.sh [server|setup]"
+	exit 1
 fi
 
 # arcane wizadry
