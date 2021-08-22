@@ -16,11 +16,28 @@
 		"dl": "https://geocities.restorativland.org/TimesSquare/Hangar/8961/Kickflip/Kickflip.zip"
 	},
 	{
+		"name": "Malice: 23rd Century Ultraconversion for Quake",
+		"author": "Ratloop",
+		"date": "1997",
+		"desc": "Malice (branded as: Malice: 23rd Century Ultraconversion for Quake) is a total conversion for Quake, developed by Team Epochalypse (Ratloop) and Quantum Axcess, published by Quantum Axcess in November 1997 as a commercial game. Set in the 23rd century in the year 2230, the player assumes the role of a bandana wearing mercenary named Damage. Working for Colonel Bossman and his underground crime syndicate, B.O.S.S., the player is pitted against Bossman's main rival, Takahiro Industries. Takahiro Industries has its own security, too, with an army of guards as well as various sophisticated robots. It is these that Damage has to fight against, going through various futuristic environments in order to assassinate Takahiro himself. Being a total conversion of Quake, Malice features a similar gameplay style to that title. The game includes eighteen new levels, fourteen new enemies, various additional items (known as \"Toyz\" in the game), a new soundtrack, and new weapons. Unlike in Quake, weapons in Malice can be manually reloaded.",
+		"dir": "malice",
+		"dl": "https://www.moddb.com/downloads/mirror/195010/121/b3a04bc626c46408f101d53542db0024/?q1mods=MALICEv2-fixed.zip",
+		"screens": [
+			"https://media.moddb.com/images/downloads/1/196/195010/148368-malice-23rd-century-ultra.jpg",
+			"https://www.myabandonware.com/media/screenshots/m/malice-23rd-century-ultraconversion-for-quake-ld6/malice-23rd-century-ultraconversion-for-quake_2.jpg",
+			"https://media.moddb.com/images/mods/1/47/46148/94839-malice-23rd-century-ultraconversion-for-quake-screenshot.jpg",
+			"https://www.myabandonware.com/media/screenshots/m/malice-23rd-century-ultraconversion-for-quake-ld6/malice-23rd-century-ultraconversion-for-quake_4.jpg",
+			"https://www.myabandonware.com/media/screenshots/m/malice-23rd-century-ultraconversion-for-quake-ld6/malice-23rd-century-ultraconversion-for-quake_5.jpg",
+			"https://www.myabandonware.com/media/screenshots/m/malice-23rd-century-ultraconversion-for-quake-ld6/malice-23rd-century-ultraconversion-for-quake_6.jpg",
+			"https://www.myabandonware.com/media/screenshots/m/malice-23rd-century-ultraconversion-for-quake-ld6/malice-23rd-century-ultraconversion-for-quake_7.jpg"
+		]
+	},
+	{
 		"name": "X-Men: The Ravages of Apocalypse",
 		"author": "Zero Gravity Entertainment",
 		"date": "1997",
 		"desc": "X-Men: The Ravages of Apocalypse is an original, first-person X-Men game using the Quake engine. X-Men: ROA is a \"total conversion\", a game that relies on another game's engine, but changes every other aspect including story, locations, characters, weapons, display and interface.",
-		"dir": "xmen1",
+		"dir": "xmen",
 		"dl": "http://www.zerogravity.com.au/xmen/X-MenROA_Quake1TC.zip"
 	}
 ]}

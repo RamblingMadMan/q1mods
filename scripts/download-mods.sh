@@ -20,17 +20,45 @@ for ((i = 0; i < ${NUM_MODS}; ++i)); do
 	MOD_DESC=$(echo "$MOD_JSON" | jq -r ".desc" | sed "s/\"/'/g")
 	MOD_DIR=$(echo "$MOD_JSON" | jq -r ".dir")
 	MOD_LINK=$(echo "$MOD_JSON" | jq -r ".dl")
-	ARCHIVE_NAME=${MOD_LINK##*/}
+	MOD_SCREENS=$(echo "$MOD_JSON" | jq -r ".screens")
+	ARCHIVE_NAME=$(echo "${MOD_LINK##*/}" | sed 's/?q1mods=//')
+
+	SCREENS_JSON="["
 
 	echo "[Mod] $MOD_NAME"
 
-	if [ ! -f "$MOD_NAME/$ARCHIVE_NAME" ]; then
+	if [ ! -d "$MOD_DIR" ]; then
+		echo "-- Creating directory '$MOD_DIR'"
+		mkdir -p $MOD_DIR
+	fi
+
+	if [ ! -f "$MOD_DIR/$ARCHIVE_NAME" ]; then
 		echo "-- Downloading '$ARCHIVE_NAME'"
-		wget -c -q --show-progress "$MOD_LINK" -O "$MOD_NAME/$ARCHIVE_NAME"
+		wget -c -q --show-progress "$MOD_LINK" -O "$MOD_DIR/$ARCHIVE_NAME"
+	fi
+
+	if [ "null" != "$MOD_SCREENS" ]; then
+		NUM_SCREENS=$(echo $MOD_SCREENS | jq 'length')
+		echo "-- $NUM_SCREENS screenshots"
+
+		for ((j = 0; j < ${NUM_SCREENS}; ++j)); do
+			SCREEN_URL=$(echo "$MOD_SCREENS" | jq -r ".[$j]")
+			SCREEN_EXT=${SCREEN_URL##*.}
+			SCREEN_OUT="$MOD_DIR/screen$j.${SCREEN_EXT}"
+
+			if [ ! -f "$SCREEN_OUT" ]; then
+				echo "--   Downloading '$SCREEN_URL' -> '${SCREEN_OUT}'"
+				wget -c -q --show-progress "$SCREEN_URL" -O "$SCREEN_OUT"
+			fi
+
+			[ $j -gt 0 ] && SCREENS_JSON="$SCREENS_JSON,"
+
+			SCREENS_JSON="$SCREENS_JSON \"$SCREEN_OUT\""
+		done
 	fi
 
 	if [ ! -f "$MOD_DIR.pak" ]; then
-		ARCHIVE_PATH=$(realpath "$MOD_NAME/$ARCHIVE_NAME")
+		ARCHIVE_PATH=$(realpath "$MOD_DIR/$ARCHIVE_NAME")
 
 		CURDIR=$(pwd)
 		WORKDIR=$(mktemp -d)
@@ -41,6 +69,11 @@ for ((i = 0; i < ${NUM_MODS}; ++i)); do
 		echo "-- Unzipping archive..."
 		unzip -L -q "$ARCHIVE_PATH"
 
+		if [ ! -z "$(ls | grep $MOD_DIR)" ]; then
+			mv $MOD_DIR/* .
+			rm -rf "$MOD_DIR"
+		fi
+
 		if [ -f "$SCRIPT_DIR/$MOD_DIR.sh" ]; then
 			echo "-- Running fixes..."
 			. "$SCRIPT_DIR/$MOD_DIR.sh"
@@ -49,6 +82,7 @@ for ((i = 0; i < ${NUM_MODS}; ++i)); do
 		echo "-- Unpacking paks..."
 		for pak in pak*.pak
 		do
+			echo "--   $pak"
 			qpakman -e -f $pak > /dev/null 2>&1
 		done
 
@@ -67,13 +101,15 @@ for ((i = 0; i < ${NUM_MODS}; ++i)); do
 		echo "-- Packed mod into '${MOD_DIR}.pak'"
 	fi
 
+	SCREENS_JSON="$SCREENS_JSON]"
+
 	if [ $i -gt 0 ]; then
 		CONTENT_JSON="${CONTENT_JSON},"
 	fi
 
 	CONTENT_JSON="${CONTENT_JSON}
 		{
-			\"name\": \"${MOD_NAME}\",
+			\"name\": \"$MOD_NAME\",
 			\"author\": $(echo "$MOD_JSON" | jq '.author'),
 			\"date\": $(echo "$MOD_JSON" | jq '.date'),
 			\"size\": $(stat --printf="%s" "${MOD_DIR}.pak"),
@@ -85,9 +121,9 @@ for ((i = 0; i < ${NUM_MODS}; ++i)); do
 				\"es\": \"$MOD_DESC\",
 				\"ru\": \"$MOD_DESC\"
 			},
-			\"gamedir\": \"${MOD_DIR}\",
+			\"gamedir\": \"$MOD_DIR\",
 			\"download\": \"$MOD_DIR.pak\",
-			\"screenshots\": [],
+			\"screenshots\": $SCREENS_JSON,
 			\"id\": \"$MOD_DIR\"
 		}"
 done
