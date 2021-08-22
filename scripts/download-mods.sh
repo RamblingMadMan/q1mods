@@ -17,7 +17,7 @@ for ((i = 0; i < ${NUM_MODS}; ++i)); do
 	MOD_JSON=$(echo "$MODS" | jq ".[$i]")
 
 	MOD_NAME=$(echo "$MOD_JSON" | jq -r ".name")
-	MOD_DESC=$(echo "$MOD_JSON" | jq -r ".desc" | sed 's/"/\\"/g')
+	MOD_DESC=$(echo "$MOD_JSON" | jq -r ".desc" | sed "s/\"/'/g")
 	MOD_DIR=$(echo "$MOD_JSON" | jq -r ".dir")
 	MOD_LINK=$(echo "$MOD_JSON" | jq -r ".dl")
 	ARCHIVE_NAME=${MOD_LINK##*/}
@@ -41,6 +41,11 @@ for ((i = 0; i < ${NUM_MODS}; ++i)); do
 		echo "-- Unzipping archive..."
 		unzip -L -q "$ARCHIVE_PATH"
 
+		if [ -f "$SCRIPT_DIR/$MOD_DIR.sh" ]; then
+			echo "-- Running fixes..."
+			. "$SCRIPT_DIR/$MOD_DIR.sh"
+		fi
+
 		echo "-- Unpacking paks..."
 		for pak in pak*.pak
 		do
@@ -48,14 +53,9 @@ for ((i = 0; i < ${NUM_MODS}; ++i)); do
 		done
 
 		echo "-- Cleaning up..."
-		rm pak*.pak > /dev/null 2>&1
-		rm *.txt > /dev/null 2>&1
-		rm *.md > /dev/null 2>&1
-
-		if [ -f "$SCRIPT_DIR/$MOD_DIR.sh" ]; then
-			echo "-- Running fixes..."
-			. "$SCRIPT_DIR/$MOD_DIR.sh"
-		fi
+		rm -f *.pak > /dev/null 2>&1
+		rm -f *.txt > /dev/null 2>&1
+		rm -f *.md > /dev/null 2>&1
 
 		echo "-- Re-packing..."
 		qpakman * -o "$MOD_DIR.pak" > /dev/null 2>&1
