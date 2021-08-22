@@ -4,7 +4,6 @@
 *.so
 *.out
 build
-build-*
 cmake-build*
 
 # Server runtime files
