@@ -1,0 +1,15 @@
+# Build related files
+*.o
+*.a
+*.so
+*.out
+build
+build-*
+cmake-build*
+
+# Server runtime files
+q1mods
+
+# Mod files
+*.pak
+progs.dat

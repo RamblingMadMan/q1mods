@@ -1,0 +1,3 @@
+[submodule "deps/qpakman"]
+	path = deps/qpakman
+	url = https://github.com/Hamsmith-Games/qpakman.git

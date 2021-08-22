@@ -1,0 +1,18 @@
+{"mods":[
+	{
+		"name": "Arcane Dimensions v1.8.1",
+		"author": "simonoc",
+		"date": "2015/1/10",
+		"desc": "An alternative universe of Quake featuring new game play features, a massive variety of monsters and 30+ maps to explore!",
+		"dir": "ad181",
+		"dl": "https://www.quaddicted.com/filebase/ad_v1_80p1final.zip"
+	},
+	{
+		"name": "Kickflip Quake v1.0",
+		"author": "Squizmek",
+		"date": "2008/3/18",
+		"desc": "The one and only skating mod for Quake1! Load a map you like (there are skating maps included) and bust some tricks! Want to test your skills? Start a competition against some bots! -Made by Squirt",
+		"dir": "kickflip100",
+		"dl": "https://geocities.restorativland.org/TimesSquare/Hangar/8961/Kickflip/Kickflip.zip"
+	}
+]}
