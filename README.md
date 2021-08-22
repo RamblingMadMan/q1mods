@@ -4,6 +4,8 @@ Scripts and instructions for getting a custom mod server up and running for Quak
 
 All of the scripts are written in bash and are tested on Ubuntu 20.04.
 
+I haved also tested the server and all of the mods are working with Quake through Proton.
+
 # Dependencies
 
 - jq
