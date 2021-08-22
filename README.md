@@ -12,6 +12,12 @@ I haved also tested the server and all of the mods are working with Quake throug
 - cmake (for building `qpakman`)
 - python3 (for local servers)
 
+## Using `apt`
+
+``` bash
+apt install jq cmake python3
+```
+
 # Getting it
 
 ``` bash

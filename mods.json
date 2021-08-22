@@ -16,6 +16,20 @@
 		"dl": "https://geocities.restorativland.org/TimesSquare/Hangar/8961/Kickflip/Kickflip.zip"
 	},
 	{
+		"name": "Team Fortress v2.8 [BROKEN]",
+		"author": "Team Fortress Software",
+		"date": "23/5/1998",
+		"desc": "Team Fortress is a revolutionary team and class based multiplayer first person shooter mod for Quake.",
+		"dir": "fortress",
+		"dl": "https://q1mods.xyz/tf28.zip",
+		"screens": [
+			"https://media.moddb.com/images/mods/1/11/10525/2.jpg",
+			"https://media.moddb.com/images/mods/1/11/10525/3.jpg",
+			"https://media.moddb.com/images/mods/1/11/10525/6.jpg",
+			"https://media.moddb.com/images/mods/1/11/10525/7.jpg"
+		]
+	},
+	{
 		"name": "Malice: 23rd Century Ultraconversion for Quake",
 		"author": "Ratloop",
 		"date": "1997",
