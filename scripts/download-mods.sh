@@ -24,11 +24,6 @@ for ((i = 0; i < ${NUM_MODS}; ++i)); do
 
 	echo "[Mod] $MOD_NAME"
 
-	if [ ! -d "$MOD_NAME/$MOD_DIR" ]; then
-		echo "-- Creating directory '$MOD_NAME/$MOD_DIR'"
-		mkdir -p "$MOD_NAME/$MOD_DIR"
-	fi
-
 	if [ ! -f "$MOD_NAME/$ARCHIVE_NAME" ]; then
 		echo "-- Downloading '$ARCHIVE_NAME'"
 		wget -c -q --show-progress "$MOD_LINK" -O "$MOD_NAME/$ARCHIVE_NAME"
