@@ -69,7 +69,7 @@ for ((i = 0; i < ${NUM_MODS}; ++i)); do
 		echo "-- Unzipping archive..."
 		unzip -L -q "$ARCHIVE_PATH"
 
-		if [ ! -z "$(ls | grep $MOD_DIR)" ]; then
+		if [ -d "$MOD_DIR" ]; then
 			mv $MOD_DIR/* .
 			rm -rf "$MOD_DIR"
 		fi

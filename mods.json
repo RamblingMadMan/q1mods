@@ -1,33 +1,67 @@
 {"mods":[
 	{
-		"name": "Arcane Dimensions v1.8.1",
+		"name": "Arcane Dimensions [MOSTLY WORKING]",
 		"author": "simonoc",
 		"date": "10/1/2015",
 		"desc": "An alternative universe of Quake featuring new game play features, a massive variety of monsters and 30+ maps to explore!",
-		"dir": "ad181",
+		"dir": "ad",
 		"dl": "https://www.quaddicted.com/filebase/ad_v1_80p1final.zip"
 	},
 	{
-		"name": "Kickflip Quake v1.0",
+		"name": "Kickflip Quake [MOSTLY WORKING]",
 		"author": "Squizmek",
 		"date": "18/3/2008",
 		"desc": "The one and only skating mod for Quake1! Load a map you like (there are skating maps included) and bust some tricks! Want to test your skills? Start a competition against some bots! -Made by Squirt",
-		"dir": "kickflip100",
+		"dir": "kickflip",
 		"dl": "https://geocities.restorativland.org/TimesSquare/Hangar/8961/Kickflip/Kickflip.zip"
 	},
 	{
-		"name": "Team Fortress v2.8 [BROKEN]",
-		"author": "Team Fortress Software",
-		"date": "23/5/1998",
-		"desc": "Team Fortress is a revolutionary team and class based multiplayer first person shooter mod for Quake.",
-		"dir": "fortress",
-		"dl": "https://q1mods.xyz/tf28.zip",
-		"screens": [
-			"https://media.moddb.com/images/mods/1/11/10525/2.jpg",
-			"https://media.moddb.com/images/mods/1/11/10525/3.jpg",
-			"https://media.moddb.com/images/mods/1/11/10525/6.jpg",
-			"https://media.moddb.com/images/mods/1/11/10525/7.jpg"
-		]
+		"name": "Quake Rally [WONKY]",
+		"author": "Impact Development Team",
+		"date": "3/8/1997",
+		"desc": "Quake Rally offers the whole range of vehicle based gaming experiences; from racing with and without weapons, through a variety of non-racing styles, right through to the story based single player challege of ‘Cult’. While the main focus is largely in multiplayer gaming (up to 8 players), single players aren’t left out.",
+		"dir": "rally",
+		"dl": "https://q1mods.xyz/quake-rally.zip"
+	},
+	{
+		"name": "Quake Slide [BROKEN]",
+		"author": "Nick 'Singe' Bousman & Glenn 'Griphis' Saaiman",
+		"date": "2000",
+		"desc": "Imagine racing downhill on a frictionless board at breakneck speeds. Imagine going over huge jumps and dodging sharp pointy things and large blunt objects in a race to the bottom, slamming into other players on your way there, trying to get them to crash. Imagine this, and you have Slide. It's just another one of those old Quake mods, but people seem to enjoy it.",
+		"dir": "slide",
+		"dl": "https://q1mods.xyz/quake-slide.zip"
+	},
+	{
+		"name": "AirQuake [MOSTLY WORKING]",
+		"author": "Iikka Keranen",
+		"date": "3/8/1997",
+		"desc": "map aircity",
+		"dir": "airquake",
+		"dl": "https://q1mods.xyz/airquake.zip"
+	},
+	{
+		"name": "Future vs Fantasy [BROKEN]",
+		"author": "Freeform",
+		"date": "25/11/1997",
+		"desc": "",
+		"dir": "fvf",
+		"dl": "https://q1mods.xyz/future-vs-fantasy.zip"
+	},
+	{
+		"name": "Empires [WONKY]",
+		"author": "Ken Madlener",
+		"date": "7/12/1997",
+		"desc": "",
+		"dir": "empires",
+		"dl": "https://q1mods.xyz/empires-tc.zip"
+	},
+	{
+		"name": "Blood Mage [WONKY]",
+		"author": "BM Software Inc.",
+		"date": "1/7/1999",
+		"desc": "As a BloodMage, you begin your quest with a Crimson Katana, a Staff of Regeneration, and a Triple Crossbow.  You will find other, more powerful, weapons and offensive spells during your quest.",
+		"dir": "bloodmage",
+		"dl": "https://q1mods.xyz/blood-mage.zip"
 	},
 	{
 		"name": "Malice: 23rd Century Ultraconversion for Quake",
@@ -66,5 +100,28 @@
 		"desc": "X-Men: The Ravages of Apocalypse is an original, first-person X-Men game using the Quake engine. X-Men: ROA is a \"total conversion\", a game that relies on another game's engine, but changes every other aspect including story, locations, characters, weapons, display and interface.",
 		"dir": "xmen",
 		"dl": "http://www.zerogravity.com.au/xmen/X-MenROA_Quake1TC.zip"
+	},
+	{
+		"name": "Rubicon Rumble Pack [BROKEN]",
+		"author": "Hrimfaxi, ijed, mfx",
+		"date": "14/9/2014",
+		"desc": "Four very large industrial/base maps based on Rubicon 2. Includes a start map and introduces some new gameplay elements.",
+		"dir": "rubicon",
+		"dl": "https://www.quaddicted.com/filebase/rrp_v103.zip",
+		"screens": [ "https://www.quaddicted.com/reviews/screenshots/rrp.jpg" ]
+	},
+	{
+		"name": "Team Fortress v2.8 [BROKEN]",
+		"author": "Team Fortress Software",
+		"date": "23/5/1998",
+		"desc": "Team Fortress is a revolutionary team and class based multiplayer first person shooter mod for Quake.",
+		"dir": "fortress",
+		"dl": "https://q1mods.xyz/tf28.zip",
+		"screens": [
+			"https://media.moddb.com/images/mods/1/11/10525/2.jpg",
+			"https://media.moddb.com/images/mods/1/11/10525/3.jpg",
+			"https://media.moddb.com/images/mods/1/11/10525/6.jpg",
+			"https://media.moddb.com/images/mods/1/11/10525/7.jpg"
+		]
 	}
 ]}
