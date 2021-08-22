@@ -1,4 +1,4 @@
-# Quake 1 enhanced mods
+# Quake 1 Enhanced Custom Mod Server
 
 Scripts and instructions for getting a custom mod server up and running for Quake (2021 re-release).
 
