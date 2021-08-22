@@ -2,7 +2,7 @@
 	{
 		"name": "Arcane Dimensions v1.8.1",
 		"author": "simonoc",
-		"date": "2015/1/10",
+		"date": "10/1/2015",
 		"desc": "An alternative universe of Quake featuring new game play features, a massive variety of monsters and 30+ maps to explore!",
 		"dir": "ad181",
 		"dl": "https://www.quaddicted.com/filebase/ad_v1_80p1final.zip"
@@ -10,7 +10,7 @@
 	{
 		"name": "Kickflip Quake v1.0",
 		"author": "Squizmek",
-		"date": "2008/3/18",
+		"date": "18/3/2008",
 		"desc": "The one and only skating mod for Quake1! Load a map you like (there are skating maps included) and bust some tricks! Want to test your skills? Start a competition against some bots! -Made by Squirt",
 		"dir": "kickflip100",
 		"dl": "https://geocities.restorativland.org/TimesSquare/Hangar/8961/Kickflip/Kickflip.zip"
@@ -30,6 +30,19 @@
 			"https://www.myabandonware.com/media/screenshots/m/malice-23rd-century-ultraconversion-for-quake-ld6/malice-23rd-century-ultraconversion-for-quake_5.jpg",
 			"https://www.myabandonware.com/media/screenshots/m/malice-23rd-century-ultraconversion-for-quake-ld6/malice-23rd-century-ultraconversion-for-quake_6.jpg",
 			"https://www.myabandonware.com/media/screenshots/m/malice-23rd-century-ultraconversion-for-quake-ld6/malice-23rd-century-ultraconversion-for-quake_7.jpg"
+		]
+	},
+	{
+		"name": "Shrak for Quake",
+		"author": "Quantum Axcess",
+		"date": "30/1/1997",
+		"desc": "Humanity has lost control over Earth... Mutants that were created during last conflicts, have completely gotten out of control. Humans were forced to flee from the planet and watch as their home was overrun by mutants and the ones, who joined them... Soon situation became even more dire. Unorganized mutant actions became organized: someone or something named \"Shrak\" have united them and started rebuilding Earth as a gigantic military base. You were sent back to Earth in order to reveal the mystery about \"Shrak\" and report it back: this should help to keep things contained on Earth... Except that your ship have crashed and will not fly back anytime soon. The game features a hub level from which you depart to different levels and to which you may return after completing them.",
+		"dir": "shrak",
+		"dl": "https://www.moddb.com/downloads/mirror/175905/123/5b9c7871cf33b2b9bc953bdf0420d4f3/?q1mods=SHRAKv2-textures-fixed.zip",
+		"screens": [
+			"https://media.moddb.com/images/downloads/1/176/175905/2019-03-17_14_37_43-maxresdefaul.png",
+			"https://media.moddb.com/images/mods/1/43/42299/proxy.duckduckgo.com4.jpg",
+			"https://media.moddb.com/images/mods/1/43/42299/proxy.duckduckgo.com2.jpg"
 		]
 	},
 	{
