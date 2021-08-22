@@ -14,5 +14,13 @@
 		"desc": "The one and only skating mod for Quake1! Load a map you like (there are skating maps included) and bust some tricks! Want to test your skills? Start a competition against some bots! -Made by Squirt",
 		"dir": "kickflip100",
 		"dl": "https://geocities.restorativland.org/TimesSquare/Hangar/8961/Kickflip/Kickflip.zip"
+	},
+	{
+		"name": "X-Men: The Ravages of Apocalypse",
+		"author": "Zero Gravity Entertainment",
+		"date": "1997",
+		"desc": "X-Men: The Ravages of Apocalypse is an original, first-person X-Men game using the Quake engine. X-Men: ROA is a \"total conversion\", a game that relies on another game's engine, but changes every other aspect including story, locations, characters, weapons, display and interface.",
+		"dir": "xmen1",
+		"dl": "http://www.zerogravity.com.au/xmen/X-MenROA_Quake1TC.zip"
 	}
 ]}

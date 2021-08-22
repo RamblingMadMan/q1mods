@@ -17,7 +17,7 @@ for ((i = 0; i < ${NUM_MODS}; ++i)); do
 	MOD_JSON=$(echo "$MODS" | jq ".[$i]")
 
 	MOD_NAME=$(echo "$MOD_JSON" | jq -r ".name")
-	MOD_DESC=$(echo "$MOD_JSON" | jq -r ".desc")
+	MOD_DESC=$(echo "$MOD_JSON" | jq -r ".desc" | sed 's/"/\\"/g')
 	MOD_DIR=$(echo "$MOD_JSON" | jq -r ".dir")
 	MOD_LINK=$(echo "$MOD_JSON" | jq -r ".dl")
 	ARCHIVE_NAME=${MOD_LINK##*/}
