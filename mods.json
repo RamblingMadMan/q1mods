@@ -32,7 +32,24 @@
 		"dl": "https://q1mods.xyz/quake-slide.zip"
 	},
 	{
-		"name": "AirQuake [MOSTLY WORKING]",
+		"name": "Paintball",
+		"author": "Quake Innovations",
+		"date": "20/7/1997",
+		"desc": "Paintball is an exciting multiplayer addon for Quake modelled after real Paintball (you know, the kind where you physically exert yourself). Almost everything about Quake play has been changed: There are new maps, models, sounds, and of course a different way of playing the game!",
+		"dir": "paintball",
+		"dl": "https://q1mods.xyz/paintball.zip"
+	},
+	{
+		"name": "Arcanum [WONKY]",
+		"author": "Tronyn, PulSaR, PM",
+		"date": "6/5/2011",
+		"desc": "Single player episode with five huge maps by Tronyn and Pulsar. Epic in style and scale. Tough battles with high numbers of enemies. Many modified and new monsters, weapons and items. Very hard. Includes a start map by distrans.",
+		"dir": "arcanum",
+		"dl": "https://www.quaddicted.com/filebase/arcanum.zip",
+		"screens": ["https://www.quaddicted.com/reviews/screenshots/arcanum.jpg"]
+	},
+	{
+		"name": "AirQuake",
 		"author": "Iikka Keranen",
 		"date": "3/8/1997",
 		"desc": "map aircity",
@@ -111,7 +128,7 @@
 		"screens": [ "https://www.quaddicted.com/reviews/screenshots/rrp.jpg" ]
 	},
 	{
-		"name": "Team Fortress v2.8 [BROKEN]",
+		"name": "Team Fortress v2.8 [WONKY]",
 		"author": "Team Fortress Software",
 		"date": "23/5/1998",
 		"desc": "Team Fortress is a revolutionary team and class based multiplayer first person shooter mod for Quake.",
