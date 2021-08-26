@@ -9,9 +9,17 @@
 	},
 	{
 		"name": "Copper Quake",
-		"author": "",
-		"date": "",
-		"desc": "",
+		"author": "http://lunaran.com/",
+		"date": "25/8/2021",
+		"desc": "If you're one of the many players who've rediscovered Quake through the 2021 rerelease, welcome!
+
+Thanks the the games industry's obsessive need for secrecy and Big Reveals, the rerelease was done with very little input or testing from the wider Quake community, leading to backwards compatibility that is, while impressive, still a little spotty. As such, the following issues are outstanding with Copper if you try to play with the KEX engine rerelease:
+
+- Autosaves are entirely broken - don't forget to quicksave!
+- The bottom of skyboxes do not draw properly in some levels - don't look down!
+- Some messages in Coop do not print correctly (namely warnings that your buddies have died - keep an eye on each other!)
+- Running a coop game through the new lobby system at all requires rather a lot of fiddling (don't forget you can still trade IP addresses!)
+",
 		"dir": "copper",
 		"dl": "http://lunaran.com/files/copper_v1_17.zip"
 	},
@@ -55,14 +63,6 @@
 		"dir": "arcanum",
 		"dl": "https://www.quaddicted.com/filebase/arcanum.zip",
 		"screens": ["https://www.quaddicted.com/reviews/screenshots/arcanum.jpg"]
-	},
-	{
-		"name": "AirQuake",
-		"author": "Iikka Keranen",
-		"date": "3/8/1997",
-		"desc": "map aircity",
-		"dir": "airquake",
-		"dl": "https://q1mods.xyz/airquake.zip"
 	},
 	{
 		"name": "Future vs Fantasy [BROKEN]",
