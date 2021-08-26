@@ -15,14 +15,14 @@ while [[ $# -gt 0 ]]; do
 
 	case "$ARG" in
 		-n)
+			MOD_NAME="$2"
 			shift
-			MOD_NAME="$1"
 			shift
 			;;
 
 		-d)
+			MOD_DIR="$2"
 			shift
-			MOD_DIR="$!"
 			shift
 			;;
 

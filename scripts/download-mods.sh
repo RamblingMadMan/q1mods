@@ -8,8 +8,9 @@ MODSFILE=$(cat "../mods.json")
 MODS=$(echo "$MODSFILE" | jq '.mods')
 NUM_MODS=$(echo "$MODS" | jq 'length')
 
-CONTENT_JSON="{
-	\"addons\": ["
+ADDONS_JSON=""
+MOD_EPISODES_JSON=""
+MOD_MAPS_JSON=""
 
 # Go through each mod re-packing for the KEX engine
 
@@ -92,8 +93,22 @@ for ((i = 0; i < ${NUM_MODS}; ++i)); do
 			. "$SCRIPT_DIR/$MOD_DIR.sh"
 		fi
 
-		echo "-- Generating mapdb.json..."
-		"$SCRIPT_DIR/generate-mapdb.sh" -n "$MOD_NAME" -d "$MOD_DIR"
+		if [ -d "maps" ]; then
+			echo "-- Generating mapdb.json..."
+			"$SCRIPT_DIR/generate-mapdb.sh" -n "$MOD_NAME" -d "$MOD_DIR"
+			cp mapdb.json "$CURDIR/$MOD_DIR/mapdb.json"
+
+			if [ $i > 0 ]; then
+				MOD_EPISODES_JSON+=","
+				MOD_MAPS_JSON+=","
+			fi
+
+			EPISODES_JSON=$(cat mapdb.json | jq '.episodes')
+			MOD_EPISODES_JSON+="${EPISODES_JSON:1:${#EPISODES_JSON}-2}"
+
+			MAPS_JSON=$(cat mapdb.json | jq '.maps')
+			MOD_MAPS_JSON+="${MAPS_JSON:1:${#MAPS_JSON}-2}"
+		fi
 
 		echo "-- Re-packing..."
 		qpakman * -o "$MOD_DIR.pak" > /dev/null 2>&1
@@ -103,15 +118,22 @@ for ((i = 0; i < ${NUM_MODS}; ++i)); do
 		rm -rf "$WORKDIR"
 
 		echo "-- Packed mod into '${MOD_DIR}.pak'"
+	elif [ -f "${MOD_DIR}/mapdb.json" ]; then
+		if [ $i > 0 ]; then
+                           MOD_EPISODES_JSON+=","
+                           MOD_MAPS_JSON+=","
+                fi
+
+                EPISODES_JSON=$(cat "${MOD_DIR}/mapdb.json" | jq '.episodes')
+                MOD_EPISODES_JSON+="${EPISODES_JSON:1:${#EPISODES_JSON}-2}"
+
+                MAPS_JSON=$(cat "${MOD_DIR}/mapdb.json" | jq '.maps')
+                MOD_MAPS_JSON+="${MAPS_JSON:1:${#MAPS_JSON}-2}"
 	fi
 
 	SCREENS_JSON="$SCREENS_JSON]"
 
-	if [ $i -gt 0 ]; then
-		CONTENT_JSON="${CONTENT_JSON},"
-	fi
-
-	CONTENT_JSON="${CONTENT_JSON}
+	ADDON_JSON+=",
 		{
 			\"name\": \"$MOD_NAME\",
 			\"author\": $(echo "$MOD_JSON" | jq '.author'),
@@ -132,11 +154,65 @@ for ((i = 0; i < ${NUM_MODS}; ++i)); do
 		}"
 done
 
-CONTENT_JSON="$CONTENT_JSON
+ID1_MAPDB_URL="https://q1mods.xyz/id1/mapdb.json.orig"
+
+echo "Downloading original mapdb.json"
+wget -c -q --show-progress "$ID1_MAPDB_URL"
+
+ID1_EPISODES_JSON=$(cat mapdb.json.orig | jq '.episodes')
+ID1_MAPS_JSON=$(cat mapdb.json.orig | jq '.maps')
+
+ALL_MAPDB_JSON="{
+	\"episodes\": [
+		${ID1_EPISODES_JSON:1:${#ID1_EPISODES_JSON}-2} $MOD_EPISODES_JSON
+	],
+	\"maps\": [
+		${ID1_MAPS_JSON:1:${#ID1_MAPS_JSON}-2} $MOD_MAPS_JSON
 	]
 }"
 
 echo "[Server]"
-echo "-- Writing 'content.json'"
 
+echo "-- Writing id1 override 'mapdb.json'"
+echo "$ALL_MAPDB_JSON" > mapdb.json
+
+echo "-- Packing 'id1.pak'"
+qpakman mapdb.json -o id1.pak > /dev/null 2>&1
+
+OVERRIDE_DESC="This add-on gives you access to all of the installed mods in this list from the multiplayer menu.
+
+HOW TO ENABLE
+=============
+
+1. Download this add-on
+2. Activate another add-on
+3. Activate this add-on again
+4. ???
+5. Fragging."
+
+CONTENT_JSON="{
+	\"addons\": [
+		{
+			\"name\": \"Multiplayer id1 Override\",
+			\"author\": \"q1mods.xyz\",
+			\"date\": \"$(date +"%D")\",
+			\"size\": $(stat --printf="%s" "id1.pak"),
+			\"description\": {
+				\"fr\": \"$OVERRIDE_DESC\",
+				\"it\": \"$OVERRIDE_DESC\",
+				\"de\": \"$OVERRIDE_DESC\",
+				\"en\": \"$OVERRIDE_DESC\",
+				\"es\": \"$OVERRIDE_DESC\",
+				\"ru\": \"$OVERRIDE_DESC\"
+			},
+			\"gamedir\": \"id1\",
+			\"download\": \"id1.pak\",
+			\"screenshots\": [],
+			\"id\": \"id1\"
+		}$ADDON_JSON
+	]
+}"
+
+echo "-- Writing 'content.json'"
 echo "$CONTENT_JSON" > content.json
+
