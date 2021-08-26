@@ -25,17 +25,12 @@ for ((i = 0; i < ${NUM_MODS}; ++i)); do
 
 	SCREENS_JSON="["
 
-	echo "[Mod] $MOD_NAME"
+	echo "[Mod] $MOD_DIR: $MOD_NAME"
 
 	if [ ! -d "$MOD_DIR" ]; then
 		echo "-- Creating directory '$MOD_DIR'"
 		mkdir -p $MOD_DIR
-	fi
-
-	if [ ! -f "$MOD_DIR/$ARCHIVE_NAME" ]; then
-		echo "-- Downloading '$ARCHIVE_NAME'"
-		wget -c -q --show-progress "$MOD_LINK" -O "$MOD_DIR/$ARCHIVE_NAME"
-	fi
+	fi	
 
 	if [ "null" != "$MOD_SCREENS" ]; then
 		NUM_SCREENS=$(echo $MOD_SCREENS | jq 'length')
@@ -58,6 +53,11 @@ for ((i = 0; i < ${NUM_MODS}; ++i)); do
 	fi
 
 	if [ ! -f "$MOD_DIR.pak" ]; then
+		if [ ! -f "$MOD_DIR/$ARCHIVE_NAME" ]; then
+			echo "-- Downloading '$ARCHIVE_NAME'"
+			wget -c -q --show-progress "$MOD_LINK" -O "$MOD_DIR/$ARCHIVE_NAME"
+		fi
+
 		ARCHIVE_PATH=$(realpath "$MOD_DIR/$ARCHIVE_NAME")
 
 		CURDIR=$(pwd)
@@ -74,11 +74,6 @@ for ((i = 0; i < ${NUM_MODS}; ++i)); do
 			rm -rf "$MOD_DIR"
 		fi
 
-		if [ -f "$SCRIPT_DIR/$MOD_DIR.sh" ]; then
-			echo "-- Running fixes..."
-			. "$SCRIPT_DIR/$MOD_DIR.sh"
-		fi
-
 		echo "-- Unpacking paks..."
 		for pak in pak*.pak
 		do
@@ -90,10 +85,19 @@ for ((i = 0; i < ${NUM_MODS}; ++i)); do
 		rm -f *.pak > /dev/null 2>&1
 		rm -f *.txt > /dev/null 2>&1
 		rm -f *.md > /dev/null 2>&1
+		rm -f *.exe > /dev/null 2>&1
+
+		if [ -f "$SCRIPT_DIR/$MOD_DIR.sh" ]; then
+			echo "-- Running fixes..."
+			. "$SCRIPT_DIR/$MOD_DIR.sh"
+		fi
+
+		echo "-- Generating mapdb.json..."
+		"$SCRIPT_DIR/generate-mapdb.sh" -n "$MOD_NAME" -d "$MOD_DIR"
 
 		echo "-- Re-packing..."
 		qpakman * -o "$MOD_DIR.pak" > /dev/null 2>&1
-		mv "$MOD_DIR.pak" "$CURDIR"
+		mv $MOD_DIR.pak "$CURDIR"
 
 		cd $CURDIR
 		rm -rf "$WORKDIR"
