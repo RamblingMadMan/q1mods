@@ -95,8 +95,12 @@ for ((i = 0; i < ${NUM_MODS}; ++i)); do
 
 		if [ -d "maps" ]; then
 			echo "-- Generating mapdb.json..."
-			"$SCRIPT_DIR/generate-mapdb.sh" -n "$MOD_NAME" -d "$MOD_DIR"
-			cp mapdb.json "$CURDIR/$MOD_DIR/mapdb.json"
+			if [ -f "mapdb.json" ]; then
+				echo "--   existing mapdb.json found"
+			else
+				"$SCRIPT_DIR/generate-mapdb.sh" -n "$MOD_NAME" -d "$MOD_DIR"
+				cp mapdb.json "$CURDIR/$MOD_DIR/mapdb.json"
+			fi
 
 			if [ $i > 0 ]; then
 				MOD_EPISODES_JSON+=","
