@@ -16,7 +16,7 @@
 		"dl": "http://lunaran.com/files/copper_v1_17.zip"
 	},
 	{
-		"name": "Kickflip Quake [MOSTLY WORKING]",
+		"name": "Kickflip Quake [LIGHTING ERRORS]",
 		"author": "Squizmek",
 		"date": "18/3/2008",
 		"desc": "The one and only skating mod for Quake1! Load a map you like (there are skating maps included) and bust some tricks! Want to test your skills? Start a competition against some bots! -Made by Squirt",
@@ -24,15 +24,7 @@
 		"dl": "https://geocities.restorativland.org/TimesSquare/Hangar/8961/Kickflip/Kickflip.zip"
 	},
 	{
-		"name": "Quake Rally [WONKY]",
-		"author": "Impact Development Team",
-		"date": "3/8/1997",
-		"desc": "Quake Rally offers the whole range of vehicle based gaming experiences; from racing with and without weapons, through a variety of non-racing styles, right through to the story based single player challege of ‘Cult’. While the main focus is largely in multiplayer gaming (up to 8 players), single players aren’t left out.",
-		"dir": "rally",
-		"dl": "https://q1mods.xyz/quake-rally.zip"
-	},
-	{
-		"name": "Quake Slide [BROKEN]",
+		"name": "Quake Slide",
 		"author": "Nick 'Singe' Bousman & Glenn 'Griphis' Saaiman",
 		"date": "2000",
 		"desc": "Imagine racing downhill on a frictionless board at breakneck speeds. Imagine going over huge jumps and dodging sharp pointy things and large blunt objects in a race to the bottom, slamming into other players on your way there, trying to get them to crash. Imagine this, and you have Slide. It's just another one of those old Quake mods, but people seem to enjoy it.",
