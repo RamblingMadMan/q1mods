@@ -21,7 +21,7 @@ apt install jq cmake python3
 # Getting it
 
 ``` bash
-git clone --depth 1 https://github.com/RamblingMadMan/q1mods.git
+git clone --recursive --depth 1 https://github.com/RamblingMadMan/q1mods.git
 ```
 
 # Running it

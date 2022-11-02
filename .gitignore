@@ -6,6 +6,9 @@
 build
 cmake-build*
 
+# Editor and desktop environment related files
+*.kate-swp
+
 # Server runtime files
 q1mods
 
